@@ -3,8 +3,27 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
   font-size: 18px;
+}
+
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+   background: url("img/background.jpg");
+  -webkit-animation-duration: 0.7s;
+  -webkit-animation-name:pulse;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction:alternate;
+}
+
+@-webkit-keyframes pulse {
+  from {
+    opacity: 1
+    }
+  to {
+    opacity: 0.9
+  }
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -13,15 +32,41 @@ body, a:link, a:visited, a:active{
   padding:5px 12px;
   float:right;
 }
+.lineup {
+  padding:5px 12px;
+  float:left;
+}
+
+.stinkyDancer {
+  background: url("img/stinky.gif");
+  width:100px;
+}
+.creepyDancer {
+  background: url("img/creepy.gif");
+  width:100px;
+}
+.blinkyDancer {
+  background: url("img/winky.gif");
+  background-size : 400px;
+}
 .topbar{
   height:32px;
   background-color: #555;
 }
 .title{
-  background-color: #777;
-}
+/*  background-color: #777;
+*/}
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
+  width: 280px;
+  height: 200px;
   position:absolute;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-name:swivel;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction:alternate;
+}
+@-webkit-keyframes swivel{
+  from {transform:rotate(30deg) }
+  to {transform:rotate(-30deg)}
+
 }

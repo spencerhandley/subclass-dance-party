@@ -1,12 +1,12 @@
-var BlinkyDancer = function(top, left, timeBetweenSteps){
-  Dancer.call(this, top, left, timeBetweenSteps, "blinkyDancer");
+var CreepyDancer = function(top, left, timeBetweenSteps){
+  Dancer.call(this, top, left, timeBetweenSteps, "creepyDancer");
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
 };
-  BlinkyDancer.prototype = Object.create(Dancer.prototype);
-  BlinkyDancer.prototype.constructor= BlinkyDancer;
-  // console.log(BlinkyDancer.prototype)
-  BlinkyDancer.prototype.step = function(timeBetweenSteps){
+  CreepyDancer.prototype = Object.create(Dancer.prototype);
+  CreepyDancer.prototype.constructor= CreepyDancer;
+  // console.log(CreepyDancer.prototype)
+  CreepyDancer.prototype.step = function(timeBetweenSteps){
     // debugger;
 
     console.log(timeBetweenSteps)

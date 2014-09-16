@@ -1,5 +1,38 @@
 $(document).ready(function(){
   window.dancers = [];
+  $(document).on("mouseover",".dancer",function(){
+    var _this = $(this)
+    $(this).animate({
+
+      top:Math.random()*window.innerHeight,
+      left:Math.random()*window.innerWidth
+     }, 1000, "linear", function(){
+      window.dancers.forEach(function(dancer){
+
+        var rangeTop = parseFloat(_this[0].style.top) + 200;
+        var rangeBottom = parseFloat(_this[0].style.top) - 200;
+        var rangeLeft = parseFloat(_this[0].style.left) - 200;
+        var rangeRight= parseFloat(_this[0].style.left) + 200;
+        console.log(parseFloat(dancer[0].style.top), rangeTop)
+        if(parseFloat(dancer[0].style.top) > rangeTop && parseFloat(dancer[0].style.top) > rangeBottom && parseFloat(dancer[0].style.left) > rangeLeft &&parseFloat(dancer[0].style.left) > rangeRight ){
+          console.log("overlap")
+          dancer[0].style.display = "none"
+        }
+      })
+     })
+  })
+  $(".lineup").on("click", function(){
+    console.log(window.dancers[i]);
+
+    var heightHolder=0;
+    for (var i=0;i<window.dancers.length;i++){
+      window.dancers[i].animate({
+        left: 0,
+        top: heightHolder
+      });
+      heightHolder+=200;
+    }
+  })
 
   $(".addDancerButton").on("click", function(event){
     /* This function sets up the click handlers for the create-dancer
@@ -21,13 +54,18 @@ $(document).ready(function(){
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
-
-    var dancer = dancerMakerFunction(
+    var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer.$node);
+        console.log(window.dancers);
+
   });
+
+
+
 });
 
